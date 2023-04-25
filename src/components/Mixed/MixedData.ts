@@ -3,8 +3,9 @@ export const mixedChartData = {
   labels,
   datasets: [
     {
-      label: 'Линия',
+      label: 'Линия полоса',
       type: 'line',
+      // fill: true,
       // data: [150, 300, 600, 870, 200, 550, 600],
       data: [
         { key: 'January', value: 150, label: '150%' },
@@ -69,14 +70,16 @@ export const mixedChartData = {
     },
   ],
 };
+
 export const mixedChartOptions = {
   responsive: true,
   plugins: {
     legend: {
-      position: 'top' as const,
+      // position: 'top' as const,
+      display: false, //отключает отображение описания графиков - label
     },
     title: {
-      display: true,
+      display: false, //отключает отображение названия графика
       text: 'Chart.js Line Chart',
     },
     datalabels: {
@@ -89,6 +92,10 @@ export const mixedChartOptions = {
         weight: 'bold',
       },
     },
+  },
+  animation: {
+    duration: 2400,
+    easing: 'linear',
   },
   scales: {
     y: {

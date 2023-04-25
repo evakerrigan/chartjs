@@ -13,7 +13,8 @@ import {
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-import { Bar } from "react-chartjs-2";
+// import { Bar } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 import { arrowBeforePointPlugin } from '../../middleware/arrowBeforePointPlugin';
 
 ChartJS.register(
@@ -31,14 +32,13 @@ ChartJS.register(
 
 interface MixedProps {
   options: ChartOptions<'bar'>;
-  // data: ChartData<"bar">;
   data: ChartData<'bar'>[];
 }
 
 export const MixedChart = ({ data, options }: MixedProps) => {
   return (
     <div className="demomixed">
-      <Bar
+      <Chart
         options={options}
         data={data}
       />
