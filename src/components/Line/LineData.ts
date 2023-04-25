@@ -4,7 +4,7 @@ export const lineChartData = {
   datasets: [
     {
       label: 'Линия',
-      type: "line",
+      type: 'line',
       data: [150, 300, 600, 870, 200, 550, 600],
       // textsPercent: ['150%', '300%', '600%', '870%', '200%', '550%', '600%'],
       // backgroundColor: 'rgba(255, 99, 132, 0.5)',
@@ -22,7 +22,6 @@ export const lineChartData = {
       // color: '#fff',
     },
   ],
-  
 };
 export const lineChartOptions = {
   responsive: true,

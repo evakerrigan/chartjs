@@ -7,6 +7,8 @@ import { NavBar } from './components/NavBar/NavBar';
 import { Bar2 } from './components/Bar2/Bar2.tsx';
 import { LineChart } from './components/Line/Line.tsx';
 import { lineChartData, lineChartOptions } from './components/Line/LineData.ts';
+import { MixedChart } from './components/Mixed/Mixed.tsx';
+import { mixedChartData, mixedChartOptions } from './components/Mixed/MixedData.ts';
 
 function App() {
 
@@ -14,11 +16,11 @@ function App() {
     <div className="app">
       <NavBar />
       <Routes>
+        <Route path="mixed" element={<MixedChart data={mixedChartData} options={mixedChartOptions} />} />
         <Route path="line" element={<LineChart data={lineChartData} options={lineChartOptions} />} />
         <Route path="chart-arrow" element={<ChartArrow data={chartData} options={chartOptions} />} />
         <Route path="bar-2" element={<Bar2 data={barChartData} options={barChartOptions} />} />
       </Routes>
-      <LineChart data={lineChartData} options={lineChartOptions} />
     </div>
   )
 }
