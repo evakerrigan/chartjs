@@ -1,20 +1,18 @@
 import './ChartArrow.css';
-import type {
-    ChartData,
-    // ChartDataset, 
-    ChartMeta, ChartOptions
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import type { ChartData, ChartOptions } from 'chart.js';
+// import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
+    Tooltip,
     Legend,
     LineElement,
     PointElement,
 } from 'chart.js';
+import { Chart } from "react-chartjs-2";
 import { arrowBeforePointPlugin } from '../../middleware/arrowBeforePointPlugin';
 
 ChartJS.register(
@@ -22,6 +20,7 @@ ChartJS.register(
     LinearScale,
     BarElement,
     Title,
+    Tooltip,
     Legend,
     LineElement,
     PointElement,
@@ -30,13 +29,13 @@ ChartJS.register(
 
 interface BarProps {
     options: ChartOptions<'bar'>;
-    data: ChartData<"bar">;
+    data: ChartData<"bar">[];
 }
 
 export const ChartArrow = ({ data, options }: BarProps) => {
     return (
         <div className="demo2">
-            <Bar data={data} options={options} />
+            <Chart data={data} options={options} />
         </div>
     );
 }

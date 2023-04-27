@@ -1,5 +1,5 @@
 import './Mixed.css';
-import type { ChartData, ChartDataset, ChartOptions } from 'chart.js';
+import type { ChartData, ChartOptions } from 'chart.js';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +13,6 @@ import {
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-// import { Bar } from "react-chartjs-2";
 import { Chart } from "react-chartjs-2";
 import { arrowBeforePointPlugin } from '../../middleware/arrowBeforePointPlugin';
 

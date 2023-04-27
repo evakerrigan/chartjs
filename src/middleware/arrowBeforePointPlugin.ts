@@ -13,8 +13,6 @@ export const arrowBeforePointPlugin = {
     chart.getSortedVisibleDatasetMetas().forEach((datasetMeta: ChartMeta) => {
       const dataset = datasets[datasetMeta.index];
 
-      console.log('запустился плагин');
-
       if (dataset.type === 'line') {
         datasetMeta.data.forEach((point, index: number) => {
           if (index > 0) {
@@ -23,8 +21,6 @@ export const arrowBeforePointPlugin = {
             const arrowHeight = 15;//высота стрелки
             const x = point.x - arrowWidth / 2;
             const y = point.y;
-
-            console.log('x, y = ', x, y );
 
             const angle = Math.atan2(point.y - prevPoint.y, point.x - prevPoint.x);//угол в радианах между осью х и лучом
             ctx.translate(x, y);//Метод ретранслирует позицию (0,0) в новое место растрового холста.
