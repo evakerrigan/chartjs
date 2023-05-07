@@ -1,5 +1,5 @@
 import './ChartArrow.css';
-import type { ChartData, ChartOptions } from 'chart.js';
+// import type { ChartData, ChartOptions } from 'chart.js';
 // import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -14,6 +14,7 @@ import {
 } from 'chart.js';
 import { Chart } from "react-chartjs-2";
 import { arrowBeforePointPlugin } from '../../middleware/arrowBeforePointPlugin';
+import { chartData, chartOptions } from './ChartArrowData';
 
 ChartJS.register(
     CategoryScale,
@@ -27,15 +28,16 @@ ChartJS.register(
     arrowBeforePointPlugin,
 );
 
-interface BarProps {
-    options: ChartOptions<'bar'>;
-    data: ChartData<"bar">[];
-}
 
-export const ChartArrow = ({ data, options }: BarProps) => {
+
+export const ChartArrow = () => {
     return (
         <div className="demo2">
-            <Chart data={data} options={options} />
+            <Chart
+              data={chartData}
+              options={chartOptions}
+              type={'bar'}
+            />
         </div>
     );
 }
