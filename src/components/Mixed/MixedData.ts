@@ -1,77 +1,93 @@
+import { ChartDataset, ChartOptions } from 'chart.js';
+
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+interface TEntity {
+  key: string,
+  value: number,
+  label: string,
+}
+
+const lineChart: ChartDataset<'line', TEntity[]> = {
+  label: 'Линия полоса',
+  type: 'line',
+  // fill: true,
+  // data: [150, 300, 600, 870, 200, 550, 600],
+  data: [
+    { key: 'January', value: 150, label: '150%' },
+    { key: 'February', value: 300, label: '300%' },
+    { key: 'March', value: 600, label: '600%' },
+    { key: 'April', value: 870, label: '870%' },
+    { key: 'May', value: 200, label: '200%' },
+    { key: 'June', value: 550, label: '550%' },
+    { key: 'July', value: 600, label: '600%' },
+  ],
+  datalabels: {
+    color: 'green',
+    align: 'end',
+    anchor: 'start',
+    textAlign: 'center',
+    font: {
+      size: 14,
+      weight: 'normal',
+    },
+  },
+  parsing: {
+    xAxisKey: 'key',
+    yAxisKey: 'value',
+  },
+  borderColor: 'rgb(255, 99, 132)',
+  borderDash: [7, 7],
+  pointBackgroundColor: '#000',
+  pointStyle: 'round',
+  pointRadius: 5,
+  pointHoverRadius: 10,
+};
+const barChart: ChartDataset<'line', TEntity[]> = {
+  label: 'Выполнено бюджета',
+  // проверки отключены т.к. библиотека на уровне типизации не поддерживает работу с
+  // двумя видами графиков одновременно
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  type: 'bar',
+  // data: [150, 300, 600, 870, 200, 550, 600],
+  data: [
+    { key: 'January', value: 150, label: 'текст\n 150%' },
+    { key: 'February', value: 300, label: 'и тут\n текст\n еще\n какой\n то 300%' },
+    { key: 'March', value: 600, label: 'тут\n немножко\n 600%' },
+    { key: 'April', value: 870, label: 'и тут\n 870%' },
+    { key: 'May', value: 200, label: '200%' },
+    { key: 'June', value: 550, label: 'пусть\n и тут\n будет\n 550%' },
+    { key: 'July', value: 600, label: 'и в\n конце\n 600%' },
+  ],
+  datalabels: {
+    color: '#fff',
+    align: 'end',
+    anchor: 'start',
+    textAlign: 'center',
+    font: {
+      size: 14,
+      weight: 'normal',
+    },
+  },
+  parsing: {
+    xAxisKey: 'key',
+    yAxisKey: 'value',
+  },
+  backgroundColor: 'blue',
+  borderWidth: 1,
+  borderRadius: 5,
+};
+
 export const mixedChartData = {
   labels,
   datasets: [
-    {
-      label: 'Линия полоса',
-      type: 'line',
-      // fill: true,
-      // data: [150, 300, 600, 870, 200, 550, 600],
-      data: [
-        { key: 'January', value: 150, label: '150%' },
-        { key: 'February', value: 300, label: '300%' },
-        { key: 'March', value: 600, label: '600%' },
-        { key: 'April', value: 870, label: '870%' },
-        { key: 'May', value: 200, label: '200%' },
-        { key: 'June', value: 550, label: '550%' },
-        { key: 'July', value: 600, label: '600%' },
-      ],
-      datalabels: {
-        color: 'green',
-        align: 'end',
-        anchor: 'start',
-        textAlign: 'center',
-        font: {
-          size: 14,
-          weight: 'normal',
-        },
-      },
-      parsing: {
-        xAxisKey: 'key',
-        yAxisKey: 'value',
-      },
-      borderColor: 'rgb(255, 99, 132)',
-      borderDash: [7, 7],
-      pointBackgroundColor: '#000',
-      pointStyle: 'round',
-      pointRadius: 5,
-      pointHoverRadius: 10,
-    },
-    {
-      label: 'Выполнено бюджета',
-      type: 'bar',
-      // data: [150, 300, 600, 870, 200, 550, 600],
-      data: [
-        { key: 'January', value: 150, label: 'текст\n 150%' },
-        { key: 'February', value: 300, label: 'и тут\n текст\n еще\n какой\n то 300%' },
-        { key: 'March', value: 600, label: 'тут\n немножко\n 600%' },
-        { key: 'April', value: 870, label: 'и тут\n 870%' },
-        { key: 'May', value: 200, label: '200%' },
-        { key: 'June', value: 550, label: 'пусть\n и тут\n будет\n 550%' },
-        { key: 'July', value: 600, label: 'и в\n конце\n 600%' },
-      ],
-      datalabels: {
-        color: '#fff',
-        align: 'end',
-        anchor: 'start',
-        textAlign: 'center',
-        font: {
-          size: 14,
-          weight: 'normal',
-        },
-      },
-      parsing: {
-        xAxisKey: 'key',
-        yAxisKey: 'value',
-      },
-      backgroundColor: 'blue',
-      borderWidth: 1,
-      borderRadius: 5,
-    },
+    lineChart,
+    barChart,
   ],
 };
 
-export const mixedChartOptions = {
+export const mixedChartOptions: ChartOptions<'line'> = {
   responsive: true,
   plugins: {
     legend: {

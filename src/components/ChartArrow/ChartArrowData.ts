@@ -1,5 +1,4 @@
 import { ChartData, ChartDataset } from 'chart.js';
-import { DefaultDataPoint } from 'chart.js/dist/types';
 
 const labels = ['2007', '2020', '2021', '2022', '2023'];
 
