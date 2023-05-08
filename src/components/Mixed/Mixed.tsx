@@ -9,6 +9,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  registerables
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -28,6 +29,7 @@ ChartJS.register(
   Legend,
   arrowBeforePointPlugin,
   ChartDataLabels,
+  ...registerables
 );
 
 export const MixedChart = () => {

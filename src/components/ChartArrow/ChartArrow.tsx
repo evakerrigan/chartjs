@@ -2,6 +2,7 @@ import './ChartArrow.css';
 // import type { ChartData, ChartOptions } from 'chart.js';
 // import { Bar } from 'react-chartjs-2';
 import {
+    registerables,
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
@@ -26,6 +27,7 @@ ChartJS.register(
     LineElement,
     PointElement,
     arrowBeforePointPlugin,
+    ...registerables
 );
 
 
@@ -34,9 +36,9 @@ export const ChartArrow = () => {
     return (
         <div className="demo2">
             <Chart
-              data={chartData}
-              options={chartOptions}
-              type={'bar'}
+                data={chartData}
+                options={chartOptions}
+                type={'bar'}
             />
         </div>
     );
